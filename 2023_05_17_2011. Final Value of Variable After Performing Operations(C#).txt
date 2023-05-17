@@ -1,0 +1,5 @@
+public class Solution {
+    public int FinalValueAfterOperations(string[] operations) {
+        return operations.Sum(x => x.Contains('-')?-1:1);
+    }
+}
