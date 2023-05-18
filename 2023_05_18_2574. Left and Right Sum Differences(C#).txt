@@ -1,0 +1,14 @@
+public class Solution {
+    public int[] LeftRightDifference(int[] nums) {
+        int L=0,R=0,val;
+        foreach(int num in nums) R+=num;
+        for(int i = 0;i<nums.Length;i++)
+        {
+            val = nums[i];
+            R-=val;
+            nums[i] = Math.Abs(L-R);
+            L+=val;
+        }
+        return nums;
+    }
+}
