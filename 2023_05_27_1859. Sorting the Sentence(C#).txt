@@ -1,0 +1,13 @@
+public class Solution {
+    public string SortSentence(string s) {
+        var array = s.Split(' ');
+        var res = new string[array.Length];
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            res[(array[i][array[i].Length - 1] + '0' - 96) - 1] = array[i].Substring(0, array[i].Length - 1);
+        }
+
+        return string.Join(' ', res); 
+    }
+}
