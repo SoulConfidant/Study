@@ -1,0 +1,11 @@
+public class Solution {
+    public int CountKDifference(int[] nums, int k) {
+        int res = 0;
+        foreach (int i in nums)
+        {
+
+            res += nums.Select(x => Convert.ToInt32(i - x == k)).Sum();
+        }
+        return res;
+    }
+}
