@@ -1,0 +1,17 @@
+public class Solution {
+    public string MergeAlternately(string word1, string word2) {
+        int minimum = Math.Min(word1.Length,word2.Length);
+        string output = string.Empty;
+        int i=0;
+
+        while(i<minimum)
+        {
+            output += string.Concat(word1[i],word2[i]);
+            i++;
+        }
+
+        return word1.Length<=word2.Length ? 
+                string.Concat(output,word2.Substring(i,word2.Length-i)) : 
+                string.Concat(output,word1.Substring(i,word1.Length-i));
+    }
+}
