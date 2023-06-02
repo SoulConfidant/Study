@@ -1,0 +1,14 @@
+public class Solution 
+{
+    public string ReverseWords(string s) 
+    {
+        string[] Answer = s.Split(' ');
+        for (int i = 0;i < Answer.Length; i++)
+        {
+            char[] a = Answer[i].ToCharArray();
+            Array.Reverse(a);
+            Answer[i] = new string(a);    
+        }
+        return String.Join(" ",Answer);
+    }
+}

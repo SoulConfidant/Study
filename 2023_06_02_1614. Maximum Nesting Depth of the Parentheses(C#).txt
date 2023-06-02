@@ -1,0 +1,13 @@
+public class Solution 
+{
+    public int MaxDepth(string s) 
+    {
+        int count = 0;
+        return s.Aggregate(0, (m, c) => c switch
+        {
+            '(' => Math.Max(m, ++count),
+            ')' => Math.Max(m, --count),
+            _ => m
+        });
+    }
+}
