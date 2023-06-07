@@ -1,0 +1,8 @@
+public class Solution
+{
+  public int DeleteGreatestValue(int[][] grid) 
+  {
+    foreach (var row in grid) Array.Sort(row);
+    return Enumerable.Range(0, grid[0].Length).Select(i => grid.Select(row => row[i]).Max()).Sum();
+  }
+}
