@@ -1,0 +1,7 @@
+public class Solution 
+{
+    public int[] SeparateDigits(int[] nums) 
+    {
+       return string.Concat(nums).ToCharArray().Select(x => (int)x - '0').ToArray();
+    }
+}
