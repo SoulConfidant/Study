@@ -1,0 +1,9 @@
+public class Solution 
+{
+    public string ReversePrefix(string word, char ch) 
+    {
+        var chs = word.Substring(0, word.IndexOf(ch)+1).ToCharArray();
+        Array.Reverse(chs);
+        return new string(chs) + word.Substring(word.IndexOf(ch)+1);
+    }
+}
