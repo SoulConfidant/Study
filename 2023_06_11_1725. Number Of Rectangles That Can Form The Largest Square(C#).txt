@@ -1,0 +1,7 @@
+public class Solution 
+{
+    public int CountGoodRectangles(int[][] rectangles) 
+    {
+        return rectangles.ToList().Select(a=>a.ToList().Min()).OrderByDescending(p=>p).GroupBy(p=>p).First().Count();
+    }
+}
