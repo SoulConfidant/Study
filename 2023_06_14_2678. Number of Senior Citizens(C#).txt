@@ -1,0 +1,7 @@
+public class Solution 
+{
+    public int CountSeniors(string[] details) 
+    {
+        return details.Count(x => int.Parse(x.Substring(11,2)) > 60);
+    }
+}

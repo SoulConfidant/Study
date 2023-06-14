@@ -1,0 +1,25 @@
+public class Solution 
+{
+    public IList<int> SelfDividingNumbers(int left, int right) 
+    {
+        var list = new List<int>();
+        for(int i = left ; i <= right ; i++)
+        {
+            if(IsSelfDid(i)) list.Add(i);
+        }
+        return list;
+    }
+    public bool IsSelfDid(int num)
+    {
+        if(num == 0) return false;
+        int a = 0,b = num;
+        while(num >= 10)
+        {
+            a = num % 10;
+            if(a == 0) return false;
+            num /= 10;
+            if(b % a != 0) return false;
+        }
+        return b % num == 0;
+    }
+}
