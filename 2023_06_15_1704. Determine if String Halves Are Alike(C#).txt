@@ -1,0 +1,9 @@
+using System.Text.RegularExpressions;
+
+public class Solution {
+    private readonly Regex r = new("[aeiouAIEOU]", RegexOptions.Compiled);
+
+    public bool HalvesAreAlike(string s) {
+        return r.Matches(s.Substring(0, s.Length / 2)).Count == r.Matches(s.Substring(s.Length / 2)).Count;
+    }
+}
