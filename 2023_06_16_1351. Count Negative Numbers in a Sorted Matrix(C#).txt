@@ -1,0 +1,7 @@
+public class Solution 
+{
+    public int CountNegatives(int[][] grid) 
+    {
+        return grid.Select(w => w.Count(w => w < 0)).Sum();
+    }
+}

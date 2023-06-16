@@ -1,0 +1,8 @@
+public class Solution 
+{
+    public int ArrayPairSum(int[] nums) 
+    {
+        Array.Sort(nums);
+        return nums.Where((x,i) => i % 2 == 0).Sum();
+    }
+}
