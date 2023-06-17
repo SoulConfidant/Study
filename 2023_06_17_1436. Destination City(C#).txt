@@ -1,0 +1,10 @@
+public class Solution 
+{
+    public string DestCity(IList<IList<string>> paths) 
+    {
+        var starts = paths.Select(p => p.ElementAt(0)).ToList();
+        var ends = paths.Select(p => p.ElementAt(1)).ToList();
+        var result = ends.Except(starts);
+        return result.ElementAt(0);
+    }
+}
