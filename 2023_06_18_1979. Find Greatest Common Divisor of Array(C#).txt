@@ -1,0 +1,8 @@
+public class Solution 
+{
+    public int FindGCD(int[] nums) 
+    {
+        int GCD(int min, int max) => max % min == 0 ? min : GCD(max % min, min);
+        return GCD(nums.Min(), nums.Max());
+    }
+}
