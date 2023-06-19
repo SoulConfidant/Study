@@ -1,0 +1,8 @@
+public class Solution 
+{
+    public void ReverseString(char[] s) 
+    {
+        int a =0,b = s.Length-1;
+        while(a < b) (s[a],s[b]) = (s[b--],s[a++]);
+    }
+}
