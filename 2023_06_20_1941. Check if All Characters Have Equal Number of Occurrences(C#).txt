@@ -1,0 +1,15 @@
+public class Solution 
+{
+    public bool AreOccurrencesEqual(string s) 
+    {
+        if(s == "")
+            return true;
+        int[] alpha = new int[26];
+        foreach(char c in s.ToCharArray())
+            alpha[c - 97]++;
+        foreach(char c in s.ToCharArray())
+            if(alpha[c - 97] != alpha[s[0] - 97])
+                return false;
+        return true;
+    }
+}

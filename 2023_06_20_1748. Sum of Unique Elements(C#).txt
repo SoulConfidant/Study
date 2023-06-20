@@ -1,0 +1,7 @@
+public class Solution 
+{
+    public int SumOfUnique(int[] nums) 
+    {
+       return (from num in nums let x = nums.Count(t => t == num) where x == 1 select num).Sum();
+    }
+}
