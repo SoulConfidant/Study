@@ -1,0 +1,21 @@
+public class Solution 
+{
+    public int[] NumberOfPairs(int[] nums) 
+    {
+        int[] answer = new int[2] { 0, 0 };
+            int n = nums.Length;
+            HashSet<int> set=new HashSet<int>();
+            for(int i=0;i<n; i++)
+            {
+                if (set.Contains(nums[i]))
+                {
+                    answer[0]++;
+                    set.Remove(nums[i]);
+                }
+                else
+                    set.Add(nums[i]);
+            }
+            answer[1] = set.Count;
+            return answer;
+    }
+}
