@@ -1,0 +1,17 @@
+public class Solution 
+{
+    public IList<int> TargetIndices(int[] nums, int target) 
+    {
+        var (lesserCount, targetCount) = (0, 0);
+
+        foreach(var n in nums) 
+        {
+            if(n < target) 
+                ++lesserCount;
+            else if(n == target)
+                ++targetCount;
+        }
+
+        return Enumerable.Range(lesserCount, targetCount).ToArray();
+    }
+}
