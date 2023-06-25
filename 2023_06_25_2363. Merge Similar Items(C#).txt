@@ -1,0 +1,10 @@
+public class Solution 
+{
+    public IList<IList<int>> MergeSimilarItems(int[][] items1, int[][] items2) 
+    {
+        var dict = items1.Union(items2).Select(x => new { Key = x[0], Count = x[1]}).OrderBy(x=>x.Key).GroupBy(x=>x.Key,(m,n)=>new {p=m,q=n.Sum(w=>w.Count)});
+        var ls = new List<IList<int>>();
+        foreach(var i in dict) ls.Add(new List<int>(){i.p,i.q}); 
+        return ls;
+    }
+}
