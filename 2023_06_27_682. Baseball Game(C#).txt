@@ -1,0 +1,36 @@
+public class Solution 
+{
+    public int CalPoints(string[] operations) 
+    {
+        List<int> l = new List<int>();
+        int length = -1;
+
+        foreach(string s in operations)
+        {
+            switch(s)
+            {
+                case "+":
+                    l.Add(l[length] + l[length - 1]);
+                    length++;
+                    break;
+                    
+                case "D":
+                    l.Add(l[length] * 2);
+                    length++;
+                    break;
+                    
+                case "C":
+                    l.RemoveAt(length);
+                    length--;
+                    break;
+                    
+                default:
+                    l.Add(int.Parse(s));
+                    length++;
+                    break;
+            }
+        }
+        
+        return l.Sum();
+    }
+}
