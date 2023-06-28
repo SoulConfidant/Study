@@ -1,0 +1,14 @@
+public class Solution 
+{
+    public char RepeatedCharacter(string s) 
+    {
+        HashSet<char> hash = new HashSet<char>();
+
+         foreach(char ch in s){
+             if(!hash.Add(ch)){
+                return ch;
+             }
+        }
+        return 'a';
+    }
+}
