@@ -1,0 +1,10 @@
+public class Solution 
+{
+    public bool IsSumEqual(string firstWord, string secondWord, string targetWord) 
+    {
+        var first  = int.Parse(string.Join("",firstWord.Select(c=>(c-'a')).ToList()));
+        var second = int.Parse(string.Join("",secondWord.Select(c=>(c-'a')).ToList()));
+        var target = int.Parse(string.Join("",targetWord.Select(c=>(c-'a')).ToList()));
+        return first + second == target;
+    }
+}
