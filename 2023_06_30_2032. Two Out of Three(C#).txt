@@ -1,0 +1,21 @@
+public class Solution 
+{
+    public IList<int> TwoOutOfThree(int[] nums1, int[] nums2, int[] nums3) 
+    {
+        var hash = new HashSet<int>();
+        var result = new List<int>();
+
+        foreach(var n in nums1){
+            if(nums2.Contains(n) || nums3.Contains(n)){
+                result.Add(n);
+            }            
+        }
+
+        foreach(var n in nums2){
+            if(nums3.Contains(n)){
+                result.Add(n);
+            }
+        }
+        return result.Distinct().ToList();
+    }
+}
