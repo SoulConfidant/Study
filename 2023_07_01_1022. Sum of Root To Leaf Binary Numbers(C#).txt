@@ -1,0 +1,35 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution 
+{
+    public int SumRootToLeaf(TreeNode root) 
+    {
+       int sum = 0;
+        void dfs(TreeNode node,string cur){
+            if(node == null) return;
+            cur = node.val.ToString()+ cur;
+            if(node?.left == null && node?.right == null){ // leaf
+                for(int i = 0; i < cur.Length;i++){
+                    int digit = cur[i] - '0';
+                    sum+= digit * ((int) Math.Pow(2,i));
+                }
+                return;
+            }   
+            dfs(node.left,cur);
+            dfs(node.right,cur);
+        }
+        dfs(root,"");
+        return sum;
+    }
+}

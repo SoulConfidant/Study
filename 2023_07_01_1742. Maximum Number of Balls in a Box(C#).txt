@@ -1,0 +1,28 @@
+public class Solution 
+{
+    public int CountBalls(int lowLimit, int highLimit) 
+    {
+        int[] record = new int[highLimit.ToString().Length * 9 + 1];
+
+                for(int i = lowLimit; i <= highLimit; i++)                
+                    record[CountDigit(i)] ++;
+
+                int max = -1;
+                foreach(int num in record)
+                {
+                    if (num > max)
+                        max = num;
+                }
+                return max;
+    }
+    private int CountDigit(int num)
+            {
+                int result = 0;
+                while(num>0)
+                {
+                    result += num % 10;
+                    num = num / 10;
+                }
+                return result;
+            }
+}
