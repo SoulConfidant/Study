@@ -1,0 +1,16 @@
+public class Solution 
+{
+    public int[] SortByBits(int[] arr) 
+    {
+        return arr.OrderBy(p=>GetDigits(p)).ThenBy(n=>n).ToArray();
+    }
+    private int GetDigits(int n)
+    {
+        var sum = 0;
+        while(n != 0){
+            sum += 1 & n;
+            n = n>>1;
+        }
+        return sum;
+    }
+}
