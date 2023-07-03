@@ -1,0 +1,13 @@
+public class Solution 
+{
+    public bool DigitCount(string num) 
+    {
+        var chs = num.Select(c=>c-'0').ToArray();
+        for(int i=0; i<chs.Length; i++){
+            if(chs[i] != chs.Count(c=>c == i)){
+                return false;
+            }
+        }
+        return true;
+    }
+}

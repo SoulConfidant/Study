@@ -1,0 +1,20 @@
+public class Solution 
+{
+    public int MinTimeToType(string word) 
+    {
+       char pointedCharacter = 'a';
+        int totalTime = 0;
+
+        foreach (char character in word)
+        {
+            int difference = Math.Abs(pointedCharacter - character);
+            int clockwise = difference;
+            int counterclockwise = 26 - difference;
+
+            totalTime += 1 + Math.Min(clockwise, counterclockwise);
+            pointedCharacter = character;
+        }
+
+        return totalTime; 
+    }
+}
