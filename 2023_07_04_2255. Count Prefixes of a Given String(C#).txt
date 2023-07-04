@@ -1,0 +1,7 @@
+public class Solution 
+{
+    public int CountPrefixes(string[] words, string s) 
+    {
+        return words.Count(x=>s.StartsWith(x));
+    }
+}
