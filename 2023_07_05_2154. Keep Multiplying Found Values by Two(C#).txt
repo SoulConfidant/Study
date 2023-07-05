@@ -1,0 +1,20 @@
+public class Solution 
+{
+    public int FindFinalValue(int[] nums, int original) 
+    {
+        int res = original;
+            Array.Sort(nums);
+            foreach(int i in nums) 
+            {
+                if(i==res)
+                {
+                    res = res * 2;
+                }
+                if(i>res)
+                {
+                    return res;
+                }
+            }
+            return res;        
+    }
+}

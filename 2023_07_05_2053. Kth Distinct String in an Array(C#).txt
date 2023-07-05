@@ -1,0 +1,8 @@
+public class Solution 
+{
+    public string KthDistinct(string[] arr, int k) 
+    {
+        var distincts = arr.GroupBy(x => x).Select(x => new { x, cnt = x.Count() }).Where(x=>x.cnt == 1).ToArray();
+        return k <= distincts.Length ? distincts[k-1].x.Key : string.Empty;
+    }
+}
