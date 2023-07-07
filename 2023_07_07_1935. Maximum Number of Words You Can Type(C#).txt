@@ -1,0 +1,9 @@
+public class Solution 
+{
+    public int CanBeTypedWords(string text, string brokenLetters) 
+    {
+        var badKeys = brokenLetters.Select(c=>c.ToString());
+        var words = text.Split(' ');
+        return words.Count(w=>!badKeys.Any(b=>w.Contains(b)));
+    }
+}
