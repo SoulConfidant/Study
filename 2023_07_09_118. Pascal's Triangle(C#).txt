@@ -1,0 +1,24 @@
+public class Solution 
+{
+    public IList<IList<int>> Generate(int numRows) 
+    {
+        IList<IList<int>> result = new List<IList<int>>();
+            for (int i = 0; i < numRows; i++)
+            {
+                List<int> list = new List<int>();
+                for (int k = 0; k <= i; k++)
+                {
+                    if (k == 0 || k == i)
+                    {
+                        list.Add(1);
+                    }
+                    else
+                    {
+                        list.Add(result[i-1][k - 1] + result[i - 1][k]);
+                    }
+                }
+                result.Add(list);
+            }
+            return result;
+    }
+}

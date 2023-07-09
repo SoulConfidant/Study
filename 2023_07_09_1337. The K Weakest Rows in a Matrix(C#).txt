@@ -1,0 +1,7 @@
+public class Solution 
+{
+    public int[] KWeakestRows(int[][] mat, int k) 
+    {
+        return mat.Select((v, i) => new { sum = v.Sum(), index = i }).OrderBy(x => x.sum).ThenBy(x => x.index).Take(k).Select(x => x.index).ToArray();
+    }
+}
