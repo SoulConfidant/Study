@@ -1,0 +1,34 @@
+public class Solution 
+{
+    public int ProjectionArea(int[][] grid) 
+    {
+       var n = grid.Length;
+        int zView = 0, xView = 0, yView = 0;
+
+        for (var i = 0; i < n; i++)
+        {
+            var yMax = 0;
+            var xMax = 0;
+
+            for (var j = 0; j < n; j++)
+            {
+                if (grid[j][i] > yMax)
+                    yMax = grid[j][i];
+
+                if (grid[i][j] > xMax)
+                    xMax = grid[i][j];
+
+                if (grid[i][j] <= 0) continue;
+
+                zView += 1;
+            }
+
+            xView += xMax;
+            yView += yMax;
+        }
+
+        var area = zView + xView + yView;
+
+        return area; 
+    }
+}
