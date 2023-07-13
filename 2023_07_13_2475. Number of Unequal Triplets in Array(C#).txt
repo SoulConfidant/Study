@@ -1,0 +1,27 @@
+public class Solution 
+{
+    private int _result;
+    public int UnequalTriplets(int[] nums) 
+    {
+        FindTriplets(new HashSet<int>(), nums, 0);
+        return _result;
+    }
+    private void FindTriplets(HashSet<int> set, int[] nums, int start)
+    {
+        if (set.Count == 3)
+        {
+            _result++;
+            return;
+        }   
+        
+        for (var i = start; i < nums.Length; i++)
+        {
+            if (!set.Contains(nums[i]))
+            {
+                set.Add(nums[i]);
+                FindTriplets(set, nums, i);
+                set.Remove(nums[i]);
+            }
+        }
+    }
+}
