@@ -1,0 +1,9 @@
+public class Solution 
+{
+    public int[][] AllCellsDistOrder(int rows, int cols, int rCenter, int cCenter) 
+    {
+        return Enumerable.Range(0, cols*rows).
+                    Select(x => (x / cols, x % cols, Math.Abs(rCenter - x / cols) + Math.Abs(cCenter - x % cols))).
+                    OrderBy(x=>x.Item3).Select(x=> new int[] {x.Item1, x.Item2}).ToArray();
+    }
+}

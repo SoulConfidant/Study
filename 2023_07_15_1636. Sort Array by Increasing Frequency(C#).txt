@@ -1,0 +1,17 @@
+public class Solution 
+{
+    public int[] FrequencySort(int[] nums) 
+    {
+        List<int> list = new List<int>();
+		
+		var sorted = nums.GroupBy(x=>x).Select(x => new { val = x.Key, cnt = x.Count()}).OrderBy(x=>x.cnt).ThenByDescending(x=>x.val);
+
+		foreach(var s in sorted)
+		{
+			for(int i = 1; i <= s.cnt; i++)
+				list.Add(s.val);
+		}
+		
+		return list.ToArray();
+    }
+}
