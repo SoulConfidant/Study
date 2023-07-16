@@ -1,0 +1,20 @@
+public class Solution 
+{
+    public int IslandPerimeter(int[][] grid) 
+    {
+        if (grid == null) return 0;        
+        int p = 0;        
+        for (int i = 0; i < grid.Length; i++)
+        {
+            for (int j = 0; j < grid[i].Length; j++ )
+            {
+                if (grid[i][j] == 0) continue;                                
+                if (i == 0 || grid[i - 1][j] == 0) p++;                
+                if (i == grid.Length - 1 || grid[i + 1][j] == 0) p++;                
+                if (j == 0 || grid[i][j - 1] == 0) p++;                
+                if (j == grid[i].Length - 1 || grid[i][j + 1] == 0) p++;
+            }
+        }
+        return p;
+    }
+}
