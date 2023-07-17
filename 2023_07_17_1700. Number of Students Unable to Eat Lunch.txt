@@ -1,0 +1,24 @@
+public class Solution 
+{
+    public int CountStudents(int[] students, int[] sandwiches) 
+    {
+        Queue<int> qu = new Queue<int>(students);
+        Queue<int> quSand = new Queue<int>(sandwiches);
+        int counter = 0;
+        while( qu.Count != 0){
+            if(qu.Peek() == quSand.Peek()){
+                qu.Dequeue();
+                quSand.Dequeue();
+                counter = 0;
+            }else{
+                counter++;
+                if(counter > qu.Count){
+                    break;
+                }
+                int item = qu.Dequeue();
+                qu.Enqueue(item);
+            }
+        }
+        return qu.Count;
+    }
+}
