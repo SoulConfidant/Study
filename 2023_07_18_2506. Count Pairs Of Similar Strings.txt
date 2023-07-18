@@ -1,0 +1,17 @@
+public class Solution 
+{
+    public int SimilarPairs(string[] words) 
+    {
+      int ans = 0;
+        for(int i =0; i< words.Length-1; i++)
+        {
+            for(int j = i+1; j< words.Length; j++)
+            {
+                  var s = words[i].Except(words[j]).Union(words[j].Except(words[i])).ToList();
+                if(s.Count() == 0)
+                ans++;
+            }
+        }
+        return ans;
+    }
+}

@@ -1,0 +1,22 @@
+public class Solution 
+{
+    public string RemoveDuplicates(string s) 
+    {
+        StringBuilder sb = new ();
+
+        foreach (char c in s)
+        {
+            int length = sb.Length;
+            if (length > 0 && sb[length - 1] == c)
+            {
+                sb.Length--;
+            }
+            else
+            {
+                sb.Append(c);
+            }
+        }
+
+        return sb.ToString();
+    }
+}
