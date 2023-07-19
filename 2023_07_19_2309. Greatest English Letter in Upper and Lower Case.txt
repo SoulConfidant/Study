@@ -1,0 +1,13 @@
+public class Solution 
+{
+    public string GreatestLetter(string s) 
+    {
+        var chs = s.ToCharArray().OrderByDescending(c=>c).ToList();
+        foreach(var c in chs){
+            if(chs.Contains((char)(c - 32))){
+                return c.ToString().ToUpper();
+            }            
+        }
+        return "";
+    }
+}

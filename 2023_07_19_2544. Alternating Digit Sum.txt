@@ -1,0 +1,17 @@
+public class Solution 
+{
+    public int AlternateDigitSum(int n) 
+    {
+       int sum = 0;
+        int mult = 1;
+        int digits = 0;
+        while (n > 0)
+        {
+            sum += (n % 10) * mult;
+            mult *= -1;
+            n /= 10;
+            digits++;
+        }
+        return sum * (digits % 2 == 0 ? -1 : 1);     
+    }
+}
