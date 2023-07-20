@@ -1,0 +1,44 @@
+public class Foo {
+
+    private readonly object mutex = new object();
+    private bool f = false;
+    private bool s = false;
+
+    public Foo() {
+        
+    }
+
+    public void First(Action printFirst) {
+        // printFirst() outputs "first". Do not change or remove this line.
+        printFirst();
+        lock (mutex)
+        {
+            f = true;
+            System.Threading.Monitor.PulseAll(mutex);
+        }
+    }
+
+    public void Second(Action printSecond) {
+        lock (mutex)
+        {
+            while (f is false) System.Threading.Monitor.Wait(mutex);
+        }
+        // printSecond() outputs "second". Do not change or remove this line.
+        printSecond();
+
+        lock (mutex)
+        {
+            s = true;
+            System.Threading.Monitor.PulseAll(mutex);
+        }
+    }
+
+    public void Third(Action printThird) {
+        lock (mutex)
+        {
+            while (s is false) System.Threading.Monitor.Wait(mutex);
+        }
+        // printThird() outputs "third". Do not change or remove this line.
+        printThird();
+    }
+}
