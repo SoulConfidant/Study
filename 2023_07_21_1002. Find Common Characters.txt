@@ -1,0 +1,32 @@
+public class Solution 
+{
+    public IList<string> CommonChars(string[] words) 
+    {
+        var map = new byte[26];
+        Array.Fill(map, byte.MaxValue);
+
+        var word = new byte[26];
+        for (int i = 0; i < words.Length; i++)
+        {
+            for (int j = 0; j < words[i].Length; j++)
+            {                
+                word[words[i][j] - 97]++;
+            }
+
+            for (int k = 0; k < 26; k++)
+            {
+                map[k] = Math.Min(map[k], word[k]);
+                word[k] = 0;
+            }
+        }
+
+        var result = new List<string>();
+        for (int k = 0; k < 26; k++)
+        {
+            for (int m = 0; m < map[k]; m++)
+                result.Add(char.ConvertFromUtf32(k + 97));
+        }
+
+        return result;
+    }
+}

@@ -1,0 +1,8 @@
+public class Solution 
+{
+    public int SmallestRangeI(int[] nums, int k) 
+    {
+        var res =  (nums.Max()) - k - (nums.Min()) - k;
+        return (res > 0 ? res : 0);
+    }
+}
