@@ -1,0 +1,36 @@
+public class Solution 
+{
+    public int CountPrimeSetBits(int left, int right) 
+    {
+       int count = 0;
+
+        for (int i = left; i <= right; i++)
+        {
+            if (isPrime(findBits(i))) count++;
+        }
+        return count;
+
+        int findBits(int input)
+        {
+            int bitcount = 0;
+
+            while (input > 0)
+            {
+                if (input % 2 == 1) bitcount++;
+                input /= 2;
+            }
+            return bitcount;
+        }
+
+        bool isPrime(int num)
+        {
+            if (num == 0 || num == 1) return false;
+
+            for (int i = 2; i <= Math.Sqrt(num); i++)
+            {
+                if (num % i == 0) return false;
+            }
+            return true;
+        } 
+    }
+}

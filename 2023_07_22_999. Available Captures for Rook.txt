@@ -1,0 +1,33 @@
+public class Solution 
+{
+    public int NumRookCaptures(char[][] board) 
+    {
+        int count = 0;
+        
+        for (int i = 0; i < board.Length; i++)
+        {
+            for (int j = 0; j < board[0].Length; j++)
+            {
+                if (board[i][j] == 'R') 
+                {
+                    checkBoard(i, j, -1, 0);
+                    checkBoard(i, j, 1, 0);
+                    checkBoard(i, j, 0, 1);
+                    checkBoard(i, j, 0, -1);
+                }
+            }
+        }
+        return count;
+
+        void checkBoard(int x, int y, int dx, int dy)
+        {
+            while (x >= 0 && x < board.Length && y >= 0 && y < board.Length) 
+            {
+                if (board[x][y] == 'B') break;
+                if (board[x][y] == 'p') { count++; break; }
+                x += dx; 
+                y += dy;
+            }
+        }
+    }
+}
