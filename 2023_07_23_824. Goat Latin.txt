@@ -1,0 +1,34 @@
+public class Solution 
+{
+    public string ToGoatLatin(string sentence) 
+    {
+        HashSet<char> hs = new HashSet<char>{'a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'};
+        int idx = 1;
+        string res = "";
+        foreach(string word in sentence.Split(" "))
+        {
+            StringBuilder sb = new StringBuilder();
+            if(hs.Contains(word[0]))
+            {
+                sb.Append(word);
+                sb.Append("ma");
+                for(int i = 0; i < idx; i++)
+                    sb.Append("a");
+            }
+            else
+            {
+                char tmp = word[0];
+                sb.Append(word.Substring(1, word.Length - 1));
+                sb.Append(tmp);
+                sb.Append("ma");
+                for(int i = 0; i < idx; i++)
+                    sb.Append("a");
+            }
+            idx++;
+            res += sb.ToString();
+            res += " ";
+        }
+        res = res.Substring(0, res.Length - 1);
+        return res;
+    }
+}
