@@ -1,0 +1,19 @@
+public class Solution 
+{
+    public bool AreNumbersAscending(string s) 
+    {
+        var words = s.Split(' ');
+        int pre = int.MinValue;
+        for(int i=0;i<words.Length;i++){
+            if(int.TryParse(words[i], out int num)){
+                if(num <= pre){
+                    return false;
+                }
+                else{
+                    pre = num;
+                }
+            }
+        }
+        return true;
+    }
+}

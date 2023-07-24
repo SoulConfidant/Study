@@ -1,0 +1,23 @@
+public class Solution 
+{
+    public IList<IList<int>> ShiftGrid(int[][] grid, int k) 
+    {
+        int width = grid[0].Length;
+        int height = grid.Length;
+        int count = width * height;
+
+        k = k % count;
+
+        IEnumerable<int> flat = grid.SelectMany(j => j);
+        IEnumerable<int> repeated = flat.Concat(flat);
+        List<int> shiftedFlat = repeated.Take(new Range(count - k, (count - k + count))).ToList();
+
+        IList<IList<int>> shiftedGrid = new List<IList<int>>();
+        for(int i = 0; i < height; i++)
+        {
+            shiftedGrid.Add(shiftedFlat.GetRange(i * width, width)); 
+        }
+
+        return shiftedGrid;
+    }
+}
