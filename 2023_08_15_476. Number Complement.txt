@@ -1,0 +1,21 @@
+public class Solution 
+{
+    public int FindComplement(int num) 
+    {
+        if(num == 0){
+            return 1;
+        }
+        double b = 0;
+        int i = 0;
+        while (num > 0)
+        {
+            if ((num & 1) != 1)
+            {
+                b += Math.Pow(2,i);
+            }
+            i++;
+            num >>= 1;
+        }
+        return (int)b;
+    }
+}

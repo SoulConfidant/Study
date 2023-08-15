@@ -1,0 +1,17 @@
+public class Solution 
+{
+    public int HammingWeight(uint n) 
+    {
+        uint check = 1;
+        int result = 0;
+        uint num = 0;
+        for(int i = 0; i <= 32; i++){
+            num = check & n;
+            if(num > 0){
+                result++;
+            }    
+            check = check << 1;
+        }
+        return result;
+    }
+}

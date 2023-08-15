@@ -1,0 +1,25 @@
+public class Solution 
+{
+    public int NearestValidPoint(int x, int y, int[][] points) 
+    {
+        int i = 0;
+        int returnValue = -1;
+        int minManhattanDistance = int.MaxValue;
+        foreach (var item in points)
+        {
+            if ((item[0] == x || item[1] == y))
+            {
+                int calculation = Math.Abs(x - item[0]) + Math.Abs(y - item[1]);
+                if (minManhattanDistance > calculation)
+                {
+                    returnValue = i;
+                    minManhattanDistance = calculation;
+                }
+            }
+
+            i++;
+        }
+
+        return returnValue;
+    }
+}
