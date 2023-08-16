@@ -1,0 +1,28 @@
+public class Solution 
+{
+    public int CountTriples(int n) 
+    {
+        var squares = Enumerable.Range(0, n+1).Select(i => i*i).ToArray();
+
+        var counter = 0;
+
+        for(var i = 1; i < n; i++)
+        {
+            for(var j = i; j < n; j++)
+            {
+                var sqSum = squares[i] + squares[j];
+
+                if(sqSum > squares[^1]) // compare to n^2
+                {
+                    break;
+                }
+                else if(squares[(int)Math.Sqrt(sqSum)] == sqSum)
+                {
+                    counter += 2;
+                }
+            }
+        }
+
+        return counter;
+    }
+}
