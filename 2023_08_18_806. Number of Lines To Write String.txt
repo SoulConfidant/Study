@@ -1,0 +1,19 @@
+public class Solution 
+{
+    public int[] NumberOfLines(int[] widths, string s) 
+    {
+        int lines = 1, result = 0;;
+        var chs = s.ToCharArray();
+        
+        foreach(var c in chs){
+            if(result + widths[c - 'a'] <= 100){
+                result += widths[c - 'a'];
+            }
+            else{
+                lines++;
+                result = widths[c - 'a'];
+            }
+        }
+        return new int[]{lines, result};
+    }
+}

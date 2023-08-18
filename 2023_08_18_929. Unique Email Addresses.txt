@@ -1,0 +1,14 @@
+public class Solution 
+{
+    public int NumUniqueEmails(string[] emails) 
+    {
+        HashSet<string> uniqueEmails = new HashSet<string>();
+            foreach (var item in emails)
+            {
+                var seperated = item.Split('@');
+                uniqueEmails.Add(seperated[0].Replace(".", "").Split('+')[0] + "@" + seperated[1]);
+            }
+
+            return uniqueEmails.Count();
+    }
+}
