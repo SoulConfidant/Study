@@ -1,0 +1,17 @@
+public class Solution 
+{
+    public int MinStartValue(int[] nums) 
+    {
+        int sum = 0;
+        int lowestPoint = int.MaxValue;
+        for(int i = 0; i< nums.Length;i++)
+        {
+            sum+=nums[i];
+            if(sum < lowestPoint)
+            {
+                lowestPoint = sum;
+            }
+        }
+        return lowestPoint > 0 ? 1 : 1-lowestPoint;
+    }
+}

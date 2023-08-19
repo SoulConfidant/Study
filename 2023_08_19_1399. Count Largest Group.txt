@@ -1,0 +1,20 @@
+public class Solution 
+{
+    public int CountLargestGroup(int n) 
+    {
+        var sumCounters = new int [37];
+
+        var largest = 0;
+
+        for(var i = 1; i <= n; i++)
+        {
+            var digitsSum = 0;
+
+            for(var t = i; t > 0; digitsSum += t % 10, t /= 10) { }
+
+            largest = Math.Max(largest, ++sumCounters[digitsSum]);
+        }
+
+        return sumCounters.Count(_ => _ == largest);
+    }
+}
