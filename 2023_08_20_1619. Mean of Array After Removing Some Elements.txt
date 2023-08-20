@@ -1,0 +1,16 @@
+public class Solution 
+{
+    public double TrimMean(int[] arr) 
+    {
+        Array.Sort(arr);
+            int len = arr.Length;
+            int skip = len / 20;
+            int sum = 0;
+            for(int i=skip; i<len-skip; i++) 
+            {
+                sum += arr[i];
+            }
+            int cou = len - 2 * skip;
+            return (double)(sum)/ cou;  
+    }
+}
