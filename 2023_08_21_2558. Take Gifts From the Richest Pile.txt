@@ -1,0 +1,14 @@
+public class Solution 
+{
+    public long PickGifts(int[] gifts, int k) 
+    {
+        var pq = new PriorityQueue<int, int>(
+            gifts.Select(_ => (_, _)),
+            Comparer<int>.Create((a, b) => b - a));
+
+        for(int g=0; k > 0 && pq.Peek() > 0; k--)
+            pq.Enqueue(g = (int)Math.Sqrt(pq.Dequeue()), g);
+
+        return pq.UnorderedItems.Sum(_ => (long)_.Item1);
+    }
+}
