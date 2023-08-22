@@ -1,0 +1,19 @@
+public class Solution 
+{
+    public int CountEven(int num) 
+    {
+        int count = 0;
+        for(int i =0; i <=num;i++){
+                int sum = 0;
+                int check = i;
+                while (check>0){
+                    sum += check%10;
+                    check/=10;
+                }
+                if(sum % 2 == 0 && i != 0){
+                    count++;
+                }
+        }
+        return count;
+    }
+}
