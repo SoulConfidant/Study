@@ -1,0 +1,16 @@
+public class Solution 
+{
+    public string[] DivideString(string s, int k, char fill) 
+    {
+        var index = 0;
+        var result = new List<string>();
+        while(index + k < s.Length){
+            result.Add(s.Substring(index, k));
+            index += k;
+        }
+        if(index + k >= s.Length){
+            result.Add(s.Substring(index, s.Length - index) + new string(fill, k + index - s.Length));
+        }
+        return result.ToArray();
+    }
+}
