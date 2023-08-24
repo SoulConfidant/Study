@@ -1,0 +1,15 @@
+public class Solution 
+{
+    public int[][] Transpose(int[][] matrix) 
+    {
+        var res = new List<int[]>();;
+        for(int row=0;row<matrix[0].Length;row++){
+            var arr = new int[matrix.Length];
+            for(int col=0;col<matrix.Length;col++){
+                arr[col] = matrix[col][row];                
+            }
+            res.Add(arr);
+        }
+        return res.ToArray();
+    }
+}
