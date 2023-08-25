@@ -1,0 +1,18 @@
+public class Solution 
+{
+    public string ReformatNumber(string number) 
+    {
+        char[] digits = number.Where(char.IsDigit).ToArray();
+        char[] ending = (digits.Length % 3) switch
+        {
+            0 => Array.Empty<char>(),
+            1 => digits[^4..],
+            _ => digits[^2..]
+        };
+
+        return string.Join('-', digits[..^ending.Length]
+                .Chunk(3)
+                .Concat(ending.Chunk(2))
+                .Select(group => new string(group)));
+    }
+}
