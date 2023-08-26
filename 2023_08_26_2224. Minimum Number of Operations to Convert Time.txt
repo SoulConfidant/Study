@@ -1,0 +1,20 @@
+public class Solution 
+{
+    public int ConvertTime(string current, string correct) 
+    {
+        var curTime = current.Split(':');
+        var corTime = correct.Split(':');
+        var mins = (Int32.Parse(corTime[0]) - Int32.Parse(curTime[0]))*60 + 
+                   (Int32.Parse(corTime[1]) - Int32.Parse(curTime[1]));
+        
+        var result = mins/60;
+        mins = mins%60;
+        result += mins/15;
+        mins = mins%15;
+        result += mins/5;
+        mins = mins%5;
+        result += mins;
+
+        return result;
+    }
+}

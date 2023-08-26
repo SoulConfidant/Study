@@ -1,0 +1,24 @@
+public class Solution 
+{
+    public IList<int> FindKDistantIndices(int[] nums, int key, int k) 
+    {
+        var r = new List<int>(nums.Length);
+
+        var i = Array.IndexOf(nums, key);
+
+        if(i < 0) return r;
+
+        r.Add(Math.Max(0, i-k));
+
+        for(var len1 = nums.Length-1; i <= len1; i++)
+        {
+            if(nums[i] != key) continue;
+
+            var (from, to) = (Math.Max(r[^1] + 1, i-k), Math.Min(i+k, len1));
+
+            while(from <= to) r.Add(from++);
+        }
+
+        return r;
+    }
+}
