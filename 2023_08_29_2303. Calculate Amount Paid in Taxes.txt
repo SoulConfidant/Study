@@ -1,0 +1,17 @@
+public class Solution 
+{
+    public double CalculateTax(int[][] brackets, int income) 
+    {
+        double tax = 0.0;
+        for(int i = 0, prevUpper  = 0; i < brackets.Length; i++) {
+            int amount = Math.Min(brackets[i][0] - prevUpper, income);
+            tax += (amount * brackets[i][1]) / 100.0;
+
+            income -= amount;
+            if(income <= 0) break;
+            prevUpper = brackets[i][0];
+        }
+
+        return tax;
+    }
+}
