@@ -1,0 +1,9 @@
+public class Solution 
+{
+    public int MissingNumber(int[] nums) 
+    {
+        var n = nums.Length;
+        var sum = (n + 1) * n / 2;
+        return nums.Aggregate(sum, (current, num) => current - num);
+    }
+}

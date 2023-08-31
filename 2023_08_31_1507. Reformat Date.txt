@@ -1,0 +1,11 @@
+public class Solution 
+{
+    public string ReformatDate(string date) 
+    {
+        var splitedDate = date.Split(' ');
+        var monthArray = new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        var day = Convert.ToInt16(string.Concat(splitedDate[0].Where(Char.IsDigit))).ToString("00");
+        var month = (Array.IndexOf(monthArray, splitedDate[1]) + 1).ToString("00");
+        return $"{splitedDate[2]}-{month}-{day}";
+    }
+}
