@@ -1,0 +1,20 @@
+public class Solution 
+{
+    public IList<string> StringMatching(string[] words) 
+    {
+        List<string> result = new();
+        string temp;
+
+        for(int i = 0; i < words.Length; i++){
+            temp = words[i];
+            words[i] = "";
+
+            if(String.Join(" ",words).IndexOf(temp) >= 0)
+                result.Add(temp);
+            
+            words[i] = temp;
+        }
+
+        return result;
+    }
+}
