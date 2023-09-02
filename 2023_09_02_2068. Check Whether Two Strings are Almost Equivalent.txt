@@ -1,0 +1,24 @@
+public class Solution 
+{
+    public bool CheckAlmostEquivalent(string word1, string word2) 
+    {
+        var group1 = word1.GroupBy(c=>c).Select(g=>new {key = g.Key, count = g.Count()}).ToList();
+        foreach(var g in group1){
+            if(Math.Abs(g.count - word2.Count(c=>c == g.key)) > 3 ){
+                return false;
+            }
+            if(!word2.Contains(g.key) && g.count > 3){
+                return false;
+            }
+        }
+
+        var group2 = word2.GroupBy(c=>c).Select(g=>new {key = g.Key, count = g.Count()}).ToList();
+        foreach(var g in group2){
+            if(!word1.Contains(g.key) && g.count > 3){
+                return false;
+            }
+        }
+
+        return true;
+    }
+}

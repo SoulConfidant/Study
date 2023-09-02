@@ -1,0 +1,16 @@
+public class Solution 
+{
+    public int SemiOrderedPermutation(int[] nums) 
+    {
+        int count =0;
+        int max = nums.Max();
+        int maxIndex = Array.IndexOf(nums, max);
+        int min = nums.Min();
+        int minIndex = Array.IndexOf(nums, min);
+        if(minIndex>maxIndex){
+            maxIndex++;
+        }
+        count = minIndex + nums.Length-maxIndex-1;
+        return count;
+    }
+}
