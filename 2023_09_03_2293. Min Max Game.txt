@@ -1,0 +1,25 @@
+public class Solution 
+{
+    public int MinMaxGame(int[] nums) 
+    {
+        var len = nums.Length;
+        var newindex = 0;
+        var even = true;
+        while(len>1){
+            while(newindex*2+1<len){
+                if(even){
+                    nums[newindex] = Math.Min(nums[newindex*2], nums[newindex*2+1]);
+                    even = false;
+                }
+                else{
+                    nums[newindex] = Math.Max(nums[newindex*2], nums[newindex*2+1]);
+                    even = true;
+                }
+                newindex++;
+            }            
+            len /=2;
+            newindex = 0;
+        }
+        return nums[0];
+    }
+}
