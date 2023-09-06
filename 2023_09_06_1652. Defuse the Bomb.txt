@@ -1,0 +1,23 @@
+public class Solution 
+{
+    public int[] Decrypt(int[] code, int k) 
+    {
+        var (n, sum) = (code.Length, 0);
+
+        int[] res = new int[n];
+
+        if (k == 0) return res;
+
+        var (start, end) = k > 0 ? (1, k) : (n+k, n-1);
+
+        for (int i = start; i <= end; i++) sum += code[i];
+
+        for (int i = 0; i < n; i++) 
+        {
+            res[i] = sum;
+            sum += -code[start++ % n] + code[++end % n];
+        }
+
+        return res;
+    }
+}
