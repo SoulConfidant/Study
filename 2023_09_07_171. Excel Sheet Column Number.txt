@@ -1,0 +1,14 @@
+public class Solution 
+{
+    public int TitleToNumber(string columnTitle) 
+    {
+        int sum = 0;
+        int power = columnTitle.Length - 1;
+
+        foreach(char c in columnTitle){            
+            sum += (int)Math.Pow(26, power) * (c - 'A' + 1);
+            power--;
+        }
+        return sum;     
+    }
+}
