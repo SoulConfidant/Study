@@ -1,0 +1,25 @@
+public class Solution 
+{
+    public int MaxAscendingSum(int[] nums) 
+    {
+        int n = nums.Length;
+            int max = Int32.MinValue;
+            int curSum = nums[0];
+            for (int i = 1; i < n; i++)
+            {
+                if (nums[i] > nums[i - 1])
+                {
+                    curSum += nums[i];
+                }
+                else
+                {
+                    if (curSum > max)
+                        max = curSum;
+                    curSum = nums[i];
+                }
+            }
+            if (curSum > max)
+                max = curSum;
+            return max;
+    }
+}
