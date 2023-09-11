@@ -1,0 +1,32 @@
+public class Solution 
+{
+    public string[] FindRelativeRanks(int[] score) 
+    {
+        var output = new string[score.Length];
+        var initial = new int[score.Length];
+        score.CopyTo(initial, 0);
+
+        Array.Sort(score);
+        Array.Reverse(score);
+
+        for(var i=0; i<initial.Length; i++)
+        {
+            var index = Array.IndexOf(score, initial[i])+1;
+
+            if(index == 1){
+              output[i] = "Gold Medal";
+            }
+            else if(index == 2){
+              output[i] = "Silver Medal";
+            }
+            else if(index == 3){
+              output[i] = "Bronze Medal";
+            }
+            else {
+            output[i] = index.ToString();
+            }
+        }
+
+        return output;
+    }
+}

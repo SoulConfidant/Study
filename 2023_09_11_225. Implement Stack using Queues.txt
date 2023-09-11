@@ -1,0 +1,36 @@
+public class MyStack 
+{
+    Queue<int> queue;
+
+    public MyStack() {
+        queue = new();
+    }
+    
+    public void Push(int x) {
+        Queue<int> temp = new();
+        while (queue.Count > 0) temp.Enqueue(queue.Dequeue());
+        queue.Enqueue(x);
+        while (temp.Count > 0) queue.Enqueue(temp.Dequeue());
+    }
+    
+    public int Pop() {
+        return queue.Dequeue();
+    }
+    
+    public int Top() {
+        return queue.Peek();
+    }
+    
+    public bool Empty() {
+        return queue.Count == 0;
+    }
+}
+
+/**
+ * Your MyStack object will be instantiated and called as such:
+ * MyStack obj = new MyStack();
+ * obj.Push(x);
+ * int param_2 = obj.Pop();
+ * int param_3 = obj.Top();
+ * bool param_4 = obj.Empty();
+ */
