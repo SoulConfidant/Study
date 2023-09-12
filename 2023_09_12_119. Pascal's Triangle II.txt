@@ -1,0 +1,14 @@
+public class Solution 
+{
+    public IList<int> GetRow(int rowIndex) 
+    {
+        Span<int> tempArr = stackalloc int[rowIndex + 1];
+        tempArr[0] = 1;
+        for (int i = 0; i < rowIndex; i++) {
+            for (int j = i + 1; j > 0 ; j--) {
+                tempArr[j] += tempArr[j - 1];
+            }
+        }
+        return new List<int>(tempArr.ToArray());
+    }
+}
